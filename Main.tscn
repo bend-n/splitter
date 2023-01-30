@@ -1,3 +1,28 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=3 uid="uid://862orftxq81e"]
 
-[node name="Main" type="Node2D"]
+[ext_resource type="Script" path="res://test.gd" id="1_ncs1l"]
+
+[node name="Main" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86143, 0, -5.02182)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.755853, 0.654741, 0, -0.654741, 0.755853, 0, 0, 0, 1, 0, 1.42561, -6.12958)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(0.334084, 0.768755, -0.545348, 0.0288089, -0.58665, -0.809328, -0.942103, 0.254672, -0.218137, -0.595417, 0.115944, -3.48055)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.755853, 0.654741, 0, -0.362328, 0.418283, -0.832921, -0.545348, 0.629566, 0.553392, 1.30623, 0.992493, -8.65402)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(0.337242, 0.185292, -0.923003, -0.678851, -0.631421, -0.374793, -0.652249, 0.752977, -0.0871558, -2.09498, 0.478853, -6.66823)
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_ncs1l")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.78558, 0)
+light_energy = 16.0
+omni_range = 13.704

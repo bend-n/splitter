@@ -16,7 +16,7 @@ func resize_players():
         p.player_count = len(players)
         p.size_port(size)
 
-func join() -> Viewport:
+func join() -> PlayerViewport:
     if len(players) > 1:
         push_error("no slots")
         return
@@ -26,7 +26,7 @@ func join() -> Viewport:
     players.append(player)
     add_child(player)
     resize_players()
-    return player.viewport # so you can add a camera
+    return player
 
 func leave(id: int) -> void:
     var p := players.pop_at(id)

@@ -1,0 +1,25 @@
+{
+  "name": "@bendn/splitter",
+  "version": "1.0.1",
+  "description": "small addon for splitscreen multiplayer",
+  "main": "screen.gd",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bend-n/splitter.git"
+  },
+  "keywords": [
+    "godot",
+    "godot-engine",
+    "splitscreen",
+    "multiplayer"
+  ],
+  "author": "bendn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bend-n/splitter/issues"
+  },
+  "homepage": "https://github.com/bend-n/splitter#readme"
+}

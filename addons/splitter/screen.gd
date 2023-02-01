@@ -4,34 +4,37 @@ class_name Splitscreen
 var players: Array[PlayerViewport] = []
 
 func _ready() -> void:
-    get_window().size_changed.connect(resize_players)
+	set_process(false)
+	get_window().size_changed.connect(set_process.bind(true))
+
+func _process(_delta: float) -> void:
+	resize_players()
+	set_process(false)
 
 func resize_players():
-    # plan:
-    #┌----┐
-    #├────┤
-    #└────┘
-    var size := Vector2(get_window().size) if len(players) == 1 else Vector2(get_window().size.x, get_window().size.y / 2.0)
-    for p in players:
-        p.player_count = len(players)
-        p.size_port(size)
+	# plan:
+	#┌----┐
+	#├────┤
+	#└────┘
+	for p in players:
+		p.player_count = len(players)
+		p.resize_port(get_window().size)
 
 func join() -> PlayerViewport:
-    if len(players) > 1:
-        push_error("no slots")
-        return
-
-    var player := PlayerViewport.new(len(players) + 1)
-    player.name = "player %d" % (len(players) + 1)
-    players.append(player)
-    add_child(player)
-    resize_players()
-    return player
+	if len(players) > 3:
+		push_error("no slots")
+		return
+	var player := PlayerViewport.new(len(players) + 1)
+	player.name = "player %d" % (len(players) + 1)
+	players.append(player)
+	add_child(player)
+	set_process(true)
+	return player
 
 func leave(id: int) -> void:
-    var p := players.pop_at(id)
-    if p == null:
-        push_error("no player")
-        return
-    p.kill()
-    resize_players()
+	var p := players.pop_at(4 - id)
+	if p == null:
+		push_error("no player")
+		return
+	p.kill()
+	set_process(true)

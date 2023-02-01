@@ -1,6 +1,6 @@
 {
   "name": "@bendn/splitter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "small addon for splitscreen multiplayer",
   "main": "screen.gd",
   "scripts": {

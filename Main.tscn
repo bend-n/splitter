@@ -1,8 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://862orftxq81e"]
+[gd_scene load_steps=5 format=3 uid="uid://862orftxq81e"]
 
 [ext_resource type="Script" path="res://test.gd" id="1_ncs1l"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_25hwq"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_1r4oi"]
+sky_material = SubResource("ProceduralSkyMaterial_25hwq")
+
+[sub_resource type="Environment" id="Environment_lkkby"]
+background_mode = 2
+sky = SubResource("Sky_1r4oi")
+tonemap_mode = 2
+glow_enabled = true
+
 [node name="Main" type="Node3D"]
+
+[node name="env" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lkkby")
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86143, 0, -5.02182)
@@ -21,8 +41,3 @@ transform = Transform3D(0.337242, 0.185292, -0.923003, -0.678851, -0.631421, -0.
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("1_ncs1l")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.78558, 0)
-light_energy = 16.0
-omni_range = 13.704

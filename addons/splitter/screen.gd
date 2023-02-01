@@ -21,7 +21,7 @@ func resize_players():
 		p.resize_port(get_window().size)
 
 func join() -> PlayerViewport:
-	if len(players) > 3:
+	if len(players) > 5:
 		push_error("no slots")
 		return
 	var player := PlayerViewport.new(len(players) + 1)
@@ -31,8 +31,8 @@ func join() -> PlayerViewport:
 	set_process(true)
 	return player
 
-func leave(id: int) -> void:
-	var p := players.pop_at(4 - id)
+func leave() -> void:
+	var p := players.pop_at(-1)
 	if p == null:
 		push_error("no player")
 		return

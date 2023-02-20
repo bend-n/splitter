@@ -15,6 +15,10 @@ config/description="smol addon to simplify creation of multiplayer splitscreen"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.0")
 
+[display]
+
+window/stretch/scale=6.0
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

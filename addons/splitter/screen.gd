@@ -18,7 +18,7 @@ func resize_players():
 	#└────┘
 	for p in players:
 		p.player_count = len(players)
-		p.resize_port(get_window().size)
+		p.resize_port(get_window().size / ProjectSettings.get_setting("display/window/stretch/scale", 1))
 
 func join() -> PlayerViewport:
 	if len(players) > 5:
@@ -29,6 +29,7 @@ func join() -> PlayerViewport:
 	players.append(player)
 	add_child(player)
 	set_process(true)
+	resize_players()
 	return player
 
 func leave() -> void:

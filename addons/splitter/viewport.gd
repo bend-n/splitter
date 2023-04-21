@@ -4,17 +4,19 @@ class_name PlayerViewport
 var player_count: int
 var viewport: Viewport
 var id: int
+var scal := 1.0
 
-func _init(_id: int) -> void:
+func _init(_id: int, _scale: float) -> void:
 	viewport = SubViewport.new()
 	add_child(viewport)
 	texture = viewport.get_texture()
 	id = _id
+	scal = _scale
 	player_count = _id # id should be count + 1
 
 ## size this viewport
 func _size(to: Vector2) -> void:
-	viewport.size = to
+	viewport.size = to * scal
 	size = to
 
 ## resize this viewport to fit over [param area], while calculating the best positions.

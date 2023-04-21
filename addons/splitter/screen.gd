@@ -3,6 +3,8 @@ class_name Splitscreen
 
 var players: Array[PlayerViewport] = []
 
+@export var scale := 1.0
+
 func _ready() -> void:
 	set_process(false)
 	get_window().size_changed.connect(set_process.bind(true))
@@ -24,7 +26,7 @@ func join() -> PlayerViewport:
 	if len(players) > 5:
 		push_error("no slots")
 		return
-	var player := PlayerViewport.new(len(players) + 1)
+	var player := PlayerViewport.new(len(players) + 1, scale)
 	player.name = "player %d" % (len(players) + 1)
 	players.append(player)
 	add_child(player)

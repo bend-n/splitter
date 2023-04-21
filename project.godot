@@ -13,11 +13,11 @@ config_version=5
 config/name="splitter"
 config/description="smol addon to simplify creation of multiplayer splitscreen"
 run/main_scene="res://Main.tscn"
-config/features=PackedStringArray("4.0")
+config/features=PackedStringArray("4.1")
 
 [display]
 
-window/stretch/scale=6.0
+window/stretch/aspect="ignore"
 
 [rendering]
 
